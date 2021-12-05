@@ -11,7 +11,7 @@ test_data = """00100
 00010
 01010"""
 
-with open('input.txt') as f:
+with open('input/day3.txt') as f:
     data = f.read()
 
 def part1(data):

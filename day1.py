@@ -9,7 +9,7 @@ test_data = """199
 260
 263"""
 
-with open('input.txt') as f:
+with open('input/day1.txt') as f:
     data = f.read()
 
 def part1(data):

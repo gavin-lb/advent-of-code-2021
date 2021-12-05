@@ -13,7 +13,7 @@ test_data = """0,9 -> 5,9
 0,0 -> 8,8
 5,5 -> 8,2"""
 
-with open('input.txt') as f:
+with open('input/day5.txt') as f:
     data = f.read()
 
 

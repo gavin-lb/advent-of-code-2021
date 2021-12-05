@@ -1,7 +1,7 @@
 from collections import Counter
 
 
-with open('input.txt') as f:
+with open('input/day2.txt') as f:
     data = f.read()
 
 test_data = """forward 5

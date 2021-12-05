@@ -46,7 +46,7 @@ test_data = """7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3
 22 11 13  6  5
  2  0 12  3  7"""
 
-with open('input.txt') as f:
+with open('input/day4.txt') as f:
     data = f.read()
     
 day4_test = Day4(test_data)
