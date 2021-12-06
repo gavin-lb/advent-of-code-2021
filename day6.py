@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter, deque
 
 test_data = "3,4,3,1,2"
 
@@ -7,14 +7,12 @@ with open('input/day6.txt') as f:
 
 def solve(data, days=80):
     *nums, = map(int, data.split(','))
-    fish = Counter(nums)
+    count = Counter(nums)
+    fish = deque([count[day] for day in range(9)])
     for _ in range(days):
-        fish = {k-1: v for k, v in fish.items()}
-        if -1 in fish:
-            new_fish = fish.pop(-1)
-            fish[6] = fish.get(6, 0) + new_fish
-            fish[8] = fish.get(8, 0) + new_fish
-    return sum(fish.values())
+        fish.rotate(-1)
+        fish[6] += fish[-1]
+    return sum(fish)
 
 assert solve(test_data) == 5934
 print('Part 1:', solve(data))
