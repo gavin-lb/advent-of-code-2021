@@ -8,7 +8,7 @@ with open('input/day6.txt') as f:
 def solve(data, days=80):
     *nums, = map(int, data.split(','))
     count = Counter(nums)
-    fish = deque([count[day] for day in range(9)])
+    fish = deque(count[day] for day in range(9))
     for _ in range(days):
         fish.rotate(-1)
         fish[6] += fish[-1]
