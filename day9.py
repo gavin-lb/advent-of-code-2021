@@ -46,11 +46,8 @@ def solve(data, part=1):
     if part == 1:
         return sum(height for height, i, j in minima) + len(minima)
     
-    basins = sorted(
-        (find_basin(minimum, grid, valid_i, valid_j, basin=set()) for minimum in minima),
-        key=len,
-        reverse=True
-    )
+    basins = [find_basin(minimum, grid, valid_i, valid_j, set()) for minimum in minima]
+    basins.sort(key=len, reverse=True)
     return prod(map(len, basins[:3]))
 
 
