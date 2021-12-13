@@ -35,15 +35,12 @@ def solve(data, part=1):
             point[coord] = min(point[coord], 2*int(n) - point[coord])
         if part == 1:
             return len({(x, y) for x, y in points})
-    height = max(y for x, y in points)
-    width = max(x for x, y in points)
-    lines = [
-        ''.join(
-            '#' if [x, y] in points else '.' for x in range(width+1)
-        )
-        for y in range(height+1)
-    ]
-    return '\n'.join(lines)
+    height = max(y for x, y in points) + 1
+    width = max(x for x, y in points) + 1
+    grid = [['.' for _ in range(width)] for _ in range(height)] 
+    for x, y in points:
+        grid[y][x] = '#'
+    return '\n'.join(''.join(row) for row in grid)
 
 
 assert solve(test_data) == 17
