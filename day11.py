@@ -18,7 +18,7 @@ with open('input/day11.txt') as f:
 
 
 def flash(arr):
-    arr += np.ones(arr.shape, dtype=int)
+    arr += 1
     mask = np.array([[1, 1, 1], [1, 0, 1], [1, 1, 1]])
     flashed = np.zeros(arr.shape, dtype=bool)
     while arr.max() > 9:
