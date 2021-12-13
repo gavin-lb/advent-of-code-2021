@@ -24,11 +24,10 @@ def find_paths(G, current_path=['start'], double_visit=False):
         new_path = current_path + [node]
         if node == 'end':
             yield new_path
-        elif node != 'start':
-            if node.isupper() or node not in current_path:
-                yield from find_paths(G, new_path, double_visit)
-            elif double_visit:
-                yield from find_paths(G, new_path, False)
+        elif node.isupper() or node not in current_path:
+            yield from find_paths(G, new_path, double_visit)
+        elif double_visit and node != 'start':
+            yield from find_paths(G, new_path, False)
 
 
 assert solve(test_data) == 10
