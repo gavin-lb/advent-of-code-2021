@@ -21,10 +21,9 @@ def flash(arr):
     arr += 1
     mask = np.array([[1, 1, 1], [1, 0, 1], [1, 1, 1]])
     flashed = np.zeros(arr.shape, dtype=bool)
-    while arr.max() > 9:
-        flashing = arr > 9
+    while np.any(flashing := arr > 9):
         flashed |= flashing
-        arr += convolve2d(flashing.astype(int), mask, mode='same')
+        arr += convolve2d(flashing, mask, mode='same')
         arr[flashed] = 0
     return flashed
 
