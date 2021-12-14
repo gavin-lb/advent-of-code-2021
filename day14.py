@@ -1,6 +1,5 @@
 from re import findall
 from collections import Counter
-from math import ceil
 
 
 test_data = """NNCB
@@ -39,13 +38,13 @@ def solve(data, steps=10):
             count[first + middle] += n
             count[middle + second] += n
             
-    totals = Counter()
+    totals = Counter([template[0], template[-1]])
     for (first, second), n in count.items():
         totals[first] += n
         totals[second] += n
     (_, most), *_, (_, least) = totals.most_common()
     
-    return ceil((most - least) / 2)
+    return (most - least)//2
 
 
 assert solve(test_data) == 1588
